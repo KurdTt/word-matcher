@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 
 @SpringBootApplication(scanBasePackages = "pk.cdq.recruting")
-@ConfigurationPropertiesScan("pk.cdq.recruting")
+@ConfigurationPropertiesScan(basePackages = "pk.cdq.recruting")
 public class TaskApplication {
 
     public static void main(String[] args) {
