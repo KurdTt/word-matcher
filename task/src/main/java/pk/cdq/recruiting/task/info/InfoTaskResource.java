@@ -9,7 +9,7 @@
  * Above notice must be preserved in all copies of this code.
  */
 
-package pk.cdq.recruting.task.info;
+package pk.cdq.recruiting.task.info;
 
 import java.util.UUID;
 import org.springframework.http.ResponseEntity;

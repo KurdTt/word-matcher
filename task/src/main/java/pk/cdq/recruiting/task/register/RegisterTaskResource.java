@@ -9,7 +9,7 @@
  * Above notice must be preserved in all copies of this code.
  */
 
-package pk.cdq.recruting.task.register;
+package pk.cdq.recruiting.task.register;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
