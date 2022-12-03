@@ -18,11 +18,16 @@ public class Task {
     private final UUID id;
     private final String input;
     private final String pattern;
+    private TaskStatus taskStatus;
+    private int progress;
+    private TaskResult result;
 
     public Task(String input, String pattern) {
         id = UUID.randomUUID();
         this.input = input;
         this.pattern = pattern;
+        taskStatus = TaskStatus.INITIAL;
+        progress = 0;
     }
 
     public UUID getId() {
@@ -35,5 +40,29 @@ public class Task {
 
     public String getPattern() {
         return pattern;
+    }
+
+    public TaskStatus getTaskStatus() {
+        return taskStatus;
+    }
+
+    public void setTaskStatus(TaskStatus taskStatus) {
+        this.taskStatus = taskStatus;
+    }
+
+    public int getProgress() {
+        return progress;
+    }
+
+    public void setProgress(int progress) {
+        this.progress = progress;
+    }
+
+    public TaskResult getResult() {
+        return result;
+    }
+
+    public void setResult(TaskResult result) {
+        this.result = result;
     }
 }

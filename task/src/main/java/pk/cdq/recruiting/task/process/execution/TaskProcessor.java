@@ -15,15 +15,25 @@ import org.springframework.context.event.EventListener;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.stereotype.Service;
+import pk.cdq.recruiting.task.domain.Task;
+import pk.cdq.recruiting.task.domain.TaskResult;
 import pk.cdq.recruiting.task.process.event.CreateTaskEvent;
 
 @Service
 @EnableAsync
 public class TaskProcessor {
 
+    private final TaskPool taskPool;
+
+    public TaskProcessor(TaskPool taskPool) {
+        this.taskPool = taskPool;
+    }
+
     @Async
     @EventListener
     public void onCreateTaskEvent(CreateTaskEvent createTaskEvent) {
-        System.out.printf("Task ID: %s%n", createTaskEvent.getTask().getId());
+        Task task = createTaskEvent.getTask();
+        task.setResult(new TaskResult(0, 0));
+        taskPool.put(task);
     }
 }

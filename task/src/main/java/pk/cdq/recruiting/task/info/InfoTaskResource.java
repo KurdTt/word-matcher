@@ -17,18 +17,29 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import pk.cdq.recruiting.task.domain.TaskResult;
 
 @RestController
 @RequestMapping("/task/{taskId}")
 public class InfoTaskResource {
 
+    private final InfoTaskController infoTaskController;
+
+    public InfoTaskResource(InfoTaskController infoTaskController) {
+        this.infoTaskController = infoTaskController;
+    }
+
     @GetMapping("/status")
     public ResponseEntity<Object> getTaskStatus(@PathVariable UUID taskId) {
-        return ResponseEntity.ok().body(taskId);
+        String status = infoTaskController.getTaskStatus(taskId);
+        GetTaskStatusResponse response = new GetTaskStatusResponse(status);
+        return ResponseEntity.ok().body(response);
     }
 
     @GetMapping("/result")
     public ResponseEntity<Object> getTaskResult(@PathVariable UUID taskId) {
-        return ResponseEntity.ok().body(taskId);
+        TaskResult taskResult = infoTaskController.getTaskResult(taskId);
+        GetTaskResultResponse response = new GetTaskResultResponse(taskResult.position(), taskResult.typos());
+        return ResponseEntity.ok().body(response);
     }
 }
