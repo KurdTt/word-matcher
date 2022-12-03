@@ -29,6 +29,7 @@
         <module>app</module>
         <module>task</module>
         <module>task/task-dto</module>
+        <module>common</module>
     </modules>
 
     <dependencyManagement>

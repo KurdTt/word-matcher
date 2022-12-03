@@ -34,6 +34,6 @@ public class TaskPoolImpl implements TaskPool {
         return Optional.of(id)
                 .filter(taskPool::containsKey)
                 .map(taskPool::get)
-                .orElseThrow(() -> new TaskNotFoundException(id));
+                .orElseThrow(TaskNotFoundException::new);
     }
 }

@@ -9,15 +9,15 @@
  * Above notice must be preserved in all copies of this code.
  */
 
-package pk.cdq.recruiting.task.exception;
+package pk.cdq.recruiting.common.exception;
 
-import java.io.Serial;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import java.time.LocalDateTime;
 
-public class TaskNotFoundException extends RuntimeException {
-    @Serial
-    private static final long serialVersionUID = -6636531449899477205L;
+public record ExceptionPayload(@JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss.SSS") LocalDateTime timestamp,
+                               String message) {
 
-    public TaskNotFoundException() {
-        super("Cannot find task with given ID");
+    public ExceptionPayload(String message) {
+        this(LocalDateTime.now(), message);
     }
 }
