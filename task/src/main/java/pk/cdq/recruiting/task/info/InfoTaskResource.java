@@ -32,7 +32,8 @@ public class InfoTaskResource {
     @GetMapping("/status")
     public ResponseEntity<Object> getTaskStatus(@PathVariable UUID taskId) {
         String status = infoTaskController.getTaskStatus(taskId);
-        GetTaskStatusResponse response = new GetTaskStatusResponse(status);
+        int progress = infoTaskController.getTaskProgress(taskId);
+        GetTaskStatusResponse response = new GetTaskStatusResponse(status, progress);
         return ResponseEntity.ok().body(response);
     }
 

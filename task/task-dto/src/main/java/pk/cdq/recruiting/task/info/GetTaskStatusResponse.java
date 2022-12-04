@@ -11,5 +11,5 @@
 
 package pk.cdq.recruiting.task.info;
 
-public record GetTaskStatusResponse(String status) {
+public record GetTaskStatusResponse(String status, int progress) {
 }

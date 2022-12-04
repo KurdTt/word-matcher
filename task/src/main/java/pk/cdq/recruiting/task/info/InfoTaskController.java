@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import pk.cdq.recruiting.task.domain.Task;
 import pk.cdq.recruiting.task.domain.TaskResult;
 import pk.cdq.recruiting.task.domain.TaskStatus;
+import pk.cdq.recruiting.task.exception.TaskNotFoundException;
 import pk.cdq.recruiting.task.exception.TaskResultNotFoundException;
 import pk.cdq.recruiting.task.exception.TaskStatusNotFoundException;
 import pk.cdq.recruiting.task.process.execution.TaskPool;
@@ -36,6 +37,13 @@ public class InfoTaskController {
                 .map(Task::getTaskStatus)
                 .map(TaskStatus::name)
                 .orElseThrow(() -> new TaskStatusNotFoundException(id));
+    }
+
+    public int getTaskProgress(UUID id) {
+        return Optional.of(id)
+                .map(taskPool::get)
+                .map(Task::getProgress)
+                .orElseThrow(TaskNotFoundException::new);
     }
 
     public TaskResult getTaskResult(UUID id) {
