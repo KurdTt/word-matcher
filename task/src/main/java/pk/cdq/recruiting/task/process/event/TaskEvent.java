@@ -9,10 +9,7 @@
  * Above notice must be preserved in all copies of this code.
  */
 
-package pk.cdq.recruiting.task.process.dispatcher;
+package pk.cdq.recruiting.task.process.event;
 
-import pk.cdq.recruiting.task.process.event.TaskEvent;
-
-public interface TaskDispatcher<T extends TaskEvent> {
-    void enqueue(T taskEvent);
+public abstract class TaskEvent {
 }

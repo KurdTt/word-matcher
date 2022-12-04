@@ -13,20 +13,20 @@ package pk.cdq.recruiting.task.process.dispatcher;
 
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
-import pk.cdq.recruiting.task.process.event.CreateTaskEvent;
+import pk.cdq.recruiting.task.process.event.word.CreateMatchWordPatternTaskEvent;
 
 @Service
-public class TaskDispatcherImpl implements TaskDispatcher {
+public class MatchWordTaskDispatcher implements TaskDispatcher<CreateMatchWordPatternTaskEvent> {
 
     private final ApplicationEventPublisher publisher;
 
-    public TaskDispatcherImpl(ApplicationEventPublisher publisher) {
+    public MatchWordTaskDispatcher(ApplicationEventPublisher publisher) {
         this.publisher = publisher;
     }
 
     @Override
-    public void enqueue(CreateTaskEvent createTaskEvent) {
-        publisher.publishEvent(createTaskEvent);
+    public void enqueue(CreateMatchWordPatternTaskEvent createMatchWordPatternTaskEvent) {
+        publisher.publishEvent(createMatchWordPatternTaskEvent);
     }
 
 }

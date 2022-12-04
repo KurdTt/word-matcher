@@ -14,7 +14,7 @@ package pk.cdq.recruiting.task.register;
 import org.springframework.stereotype.Controller;
 import pk.cdq.recruiting.task.domain.Task;
 import pk.cdq.recruiting.task.process.dispatcher.TaskDispatcher;
-import pk.cdq.recruiting.task.process.event.CreateTaskEvent;
+import pk.cdq.recruiting.task.process.event.word.CreateMatchWordPatternTaskEvent;
 
 @Controller
 public class RegisterTaskController {
@@ -26,7 +26,7 @@ public class RegisterTaskController {
     }
 
     public void enqueueTask(Task task) {
-        taskDispatcher.enqueue(CreateTaskEvent.of(task));
+        taskDispatcher.enqueue(CreateMatchWordPatternTaskEvent.of(task));
     }
 
 }

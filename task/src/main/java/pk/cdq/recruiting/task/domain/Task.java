@@ -15,7 +15,7 @@ import java.util.UUID;
 
 public class Task {
 
-    private final UUID id;
+    private final UUID id = UUID.randomUUID();
     private final String input;
     private final String pattern;
     private TaskStatus taskStatus;
@@ -23,7 +23,6 @@ public class Task {
     private TaskResult result;
 
     public Task(String input, String pattern) {
-        id = UUID.randomUUID();
         this.input = input;
         this.pattern = pattern;
         taskStatus = TaskStatus.INITIAL;
@@ -54,8 +53,8 @@ public class Task {
         return progress;
     }
 
-    public void setProgress(int progress) {
-        this.progress = progress;
+    public void progress(int progress) {
+        this.progress = Math.min(this.progress + progress, 100);
     }
 
     public TaskResult getResult() {

@@ -9,19 +9,21 @@
  * Above notice must be preserved in all copies of this code.
  */
 
-package pk.cdq.recruiting.task.process.event;
+package pk.cdq.recruiting.task.process.event.word;
 
 import pk.cdq.recruiting.task.domain.Task;
+import pk.cdq.recruiting.task.process.event.TaskEvent;
 
-public class CreateTaskEvent {
+public class CreateMatchWordPatternTaskEvent extends TaskEvent {
+
     private final Task task;
 
-    private CreateTaskEvent(Task task) {
+    private CreateMatchWordPatternTaskEvent(Task task) {
         this.task = task;
     }
 
-    public static CreateTaskEvent of(Task task) {
-        return new CreateTaskEvent(task);
+    public static CreateMatchWordPatternTaskEvent of(Task task) {
+        return new CreateMatchWordPatternTaskEvent(task);
     }
 
     public Task getTask() {
