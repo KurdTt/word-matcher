@@ -10,11 +10,11 @@
 
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
-    <name>recruiting-task</name>
-    <description>CDQ Recruiting Task</description>
+    <name>word-matcher</name>
+    <description>Asynchronous Word Matcher</description>
 
-    <groupId>pk.cdq</groupId>
-    <artifactId>recruiting-task</artifactId>
+    <groupId>com.pksiazek</groupId>
+    <artifactId>word-matcher</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
     <properties>
@@ -28,9 +28,9 @@
 
     <modules>
         <module>app</module>
-        <module>task</module>
-        <module>task/task-dto</module>
         <module>common</module>
+        <module>word-matcher</module>
+        <module>word-matcher/word-matcher-dto</module>
     </modules>
 
     <dependencyManagement>
