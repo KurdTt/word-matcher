@@ -21,10 +21,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindException;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-@ControllerAdvice("com.pksiazek.wordmatcher")
+@RestControllerAdvice("com.pksiazek.wordmatcher")
 public class TaskExceptionHandler {
 
     @ExceptionHandler(
