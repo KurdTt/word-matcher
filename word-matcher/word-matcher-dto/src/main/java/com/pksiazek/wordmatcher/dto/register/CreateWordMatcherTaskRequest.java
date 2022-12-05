@@ -11,7 +11,9 @@
 
 package com.pksiazek.wordmatcher.dto.register;
 
-import javax.validation.constraints.NotEmpty;
 
-public record CreateWordMatcherTaskRequest(@NotEmpty String input, @NotEmpty String pattern) {
+import jakarta.validation.constraints.NotEmpty;
+
+public record CreateWordMatcherTaskRequest(@NotEmpty(message = "Input cannot be empty") String input,
+                                           @NotEmpty(message = "Message cannot be empty") String pattern) {
 }
