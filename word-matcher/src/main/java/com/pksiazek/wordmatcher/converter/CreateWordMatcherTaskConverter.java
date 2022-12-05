@@ -9,7 +9,7 @@
  * Above notice must be preserved in all copies of this code.
  */
 
-package com.pksiazek.wordmatcher.register;
+package com.pksiazek.wordmatcher.converter;
 
 import com.pksiazek.common.task.converter.TaskRequestConverter;
 import com.pksiazek.wordmatcher.domain.WordMatcherTask;
